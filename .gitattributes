@@ -1,2 +1,4 @@
 * linguist-language=Python
 *.tcl linguist-vendored
+*.xlsx binary
+*.exe linguist-vendored
