@@ -55,7 +55,7 @@ libcrypto-1_1.dll
 
 #ignore tcl files
 *.tcl
-
+* .md
 
 
 
