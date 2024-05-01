@@ -17,9 +17,7 @@ setupinfo/
 setuptools-65.5.0.dist-info/
 tcl/
 tcl8/
-tcl8/tcl/8.4/
 tk/
-tk/ttk/
 win32/
 win32.com/
 
@@ -57,7 +55,9 @@ libcrypto-1_1.dll
 
 #ignore tcl files
 *.tcl
-* .md
+*.md
+*.pyd
+*.dll
 
 
 
