@@ -89,7 +89,7 @@ def send_feedback_email(feedback):
         try:
                 smtp_connection = smtplib.SMTP(smtp_server, smtp_port)
                 smtp_connection.starttls()
-                smtp_connection.login(sender_email, "neqi irpw bfgb oqov")  # Replace with your email password or use a secure method for authentication
+                smtp_connection.login(sender_email, "ybwx nocw ewjr eksu")  # Replace with your email password or use a secure method for authentication
                 smtp_connection.sendmail(sender_email, receiver_email, message.as_string())
                 smtp_connection.quit()
         except Exception as e:
