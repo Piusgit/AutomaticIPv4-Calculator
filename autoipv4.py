@@ -2,7 +2,6 @@ import os
 import socket
 import customtkinter
 from tkinter import *
-import tkinter.messagebox
 from tkinter import messagebox
 from tkinter import ttk
 import pandas as pd
@@ -65,7 +64,7 @@ def send_feedback_email(feedback):
         # Email configuration (update to your own)
         sender_email = "cyberwhizy@gmail.com"
         receiver_email = "cyberwhizy@gmail.com"
-        email_subject = "Feedback from Your App"
+        email_subject = "feedback from autoipv4"
         smtp_server = "smtp.gmail.com"  
         smtp_port = 587  # Update with your SMTP port
 
