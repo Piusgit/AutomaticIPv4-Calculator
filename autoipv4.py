@@ -1,7 +1,6 @@
 import os
 import socket
 import customtkinter
-import tkinter
 from tkinter import *
 import tkinter.messagebox
 from tkinter import messagebox
@@ -11,8 +10,6 @@ from math import log2,ceil
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 import ipaddress
-from customtkinter import CTk
-from tkinter import simpledialog
 import pyperclip
 import smtplib
 from email.mime.text import MIMEText
@@ -29,12 +26,9 @@ def resource_path(relative_path):
         
         return os.path.join(base_path, relative_path)
 
-
-
-
+# appearance modes
 customtkinter.set_appearance_mode("System")  #Other Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("dark-blue")  #Other Themes: "blue" (standard), "green", "dark-blue"
-
 
 def change_scaling_event(app, new_scaling: str):
         new_scaling_float = int(new_scaling.replace("%", "")) / 100
@@ -67,11 +61,12 @@ def save_feedback_to_excel(feedback_data):
 
 
 def send_feedback_email(feedback):
-        # Email configuration
-        sender_email = "cyberwhizy@gmail.com" #update this with your own email address dedicated for the application.
-        receiver_email = "cyberwhizy@gmail.com" #Update this with your own email address dedicated for the application.
+
+        # Email configuration (update to your own)
+        sender_email = "cyberwhizy@gmail.com"
+        receiver_email = "cyberwhizy@gmail.com"
         email_subject = "Feedback from Your App"
-        smtp_server = "smtp.gmail.com"  # Update to your own SMTP server details
+        smtp_server = "smtp.gmail.com"  
         smtp_port = 587  # Update with your SMTP port
 
         # Create a multipart message to include both plain text and HTML
@@ -85,18 +80,16 @@ def send_feedback_email(feedback):
         plain_text = MIMEText(text, "plain")
         message.attach(plain_text)
 
-        # Send the email using SMTP
+        # Send the email using SMTP (replace your app passwd)
         try:
                 smtp_connection = smtplib.SMTP(smtp_server, smtp_port)
                 smtp_connection.starttls()
-                smtp_connection.login(sender_email, "ybwx nocw ewjr eksu")  # Replace with your email password or use a secure method for authentication
+                smtp_connection.login(sender_email, "smoy gmes seqt pfqv") 
                 smtp_connection.sendmail(sender_email, receiver_email, message.as_string())
                 smtp_connection.quit()
         except Exception as e:
                 error_message = f"Failed to send feedback, make sure you have a stable internet connection buddy: {e}"
                 messagebox.showerror("Error", error_message)
-
-       
 
 
 def provide_feedback():
@@ -106,7 +99,7 @@ def provide_feedback():
         if feedback:
                 feedback_data = [["User", feedback]]
                 save_feedback_to_excel(feedback_data)
-                send_feedback_email(feedback)  # Send feedback via email
+                send_feedback_email(feedback) 
                 messagebox.showinfo("Feedback", "Thank you for your feedback!")
         else:
                 messagebox.showwarning("Feedback", "No feedback provided.")
@@ -114,15 +107,7 @@ def provide_feedback():
            
 def open_input_dialog_event():
         dialog = customtkinter.CTkInputDialog(title="Feedback", text="Please provide your feedback")
-        #print("Feedback:", dialog.get_input())
-
-
-   
-
-
-   
-   
-
+        #print("Feedback:", dialog.get_input()) - dont mind my test
 
        
 def show_help():
@@ -149,17 +134,9 @@ def show_help():
         - The select button also initiates another instance of calculations."""""))
        
        
-   
- 
-       
-       
 
- 
-       
-       
-   
 
-    #THE METHODS FOR THE CALCULATE BUTTON TRIGGER ARE DEFINED BELOW
+# calculate button methods
 def calculate():
         # Get the input values
         oct1 = oct1_entry.get()
@@ -181,11 +158,7 @@ def calculate():
                 network_class = calculate_network_class(ip)
                 hostname = reverse_dns_lookup(ip)
                 hosts_rane =calculate_hosts_range(ip, subnet_mask)
-                total_hosts = calculate_total_hosts(cidr)
-               
-
-
-               
+                total_hosts = calculate_total_hosts(cidr)               
 
                 # Update the output fields
                 subnet_mask_entry.delete(0, customtkinter.END)
@@ -200,8 +173,7 @@ def calculate():
                 hosts_per_subnet_entry.insert(customtkinter.END, hosts_per_subnet)
                 network_class_entry.delete(0, customtkinter.END)
                 network_class_entry.insert(customtkinter.END, network_class)
-               
-               
+                 
                 try:
                         hostname = reverse_dns_lookup(ip)  # Perform reverse DNS lookup
                 except socket.herror:
@@ -209,7 +181,6 @@ def calculate():
 
                 reverse_dns_entry.delete(0, customtkinter.END)
                 reverse_dns_entry.insert(customtkinter.END, hostname)
-
                
                 hosts_range = calculate_hosts_range(ip, subnet_mask)
                 network_class = calculate_network_class(ip)
@@ -219,14 +190,7 @@ def calculate():
                 hosts_range_entry.insert(customtkinter.END, hosts_range)
                 total_hosts_entry.delete(0, customtkinter.END)
                 total_hosts_entry.insert(customtkinter.END, total_hosts)
-               
-       
-
-               
-
-               
-               
-               
+                      
                 result_text = f"IP ADDRESS: {ip}/{cidr}\n"
                 result_text += f"SUBNETMASK: {subnet_mask}\n"
                 result_text += f"NETWORK ADDRESS: {network_address}\n"
@@ -238,10 +202,7 @@ def calculate():
                 result_text += f"HOSTSRANGE: {hosts_range}\n"
                 result_text += f"NUMBER OF HOSTS: {total_hosts}\n"
                 result_text += f"Developed by Douglas"
-
-
-
-               
+       
                 app.result_text = result_text
                 messagebox.showinfo("Results", result_text)
                
@@ -250,10 +211,10 @@ def calculate():
                 messagebox.showerror("Error", "Please enter all the required fields.")
                
    
-   
-   
-   
-# The validate_input method is called by the calculate method to validate the input values entered by the user. It checks if the IP address and CIDR value are valid. If the input values are valid, it returns True. Otherwise, it returns False.
+    
+# The validate_input method is called by the calculate method to validate the input values entered by the user. 
+# It checks if the IP address and CIDR value are valid. 
+# If the input values are valid, it returns True. Otherwise, it returns False.
 def validate_input( oct1_entry, oct2_entry, oct3_entry, oct4_entry, cidr):
         # Check if any entry field is empty and if empty, show an error message
         if not oct1_entry or not oct2_entry or not oct3_entry or not oct4_entry or not cidr:
@@ -286,7 +247,6 @@ def validate_input( oct1_entry, oct2_entry, oct3_entry, oct4_entry, cidr):
             return False
 
         return True
-
 
            
 def reset():
@@ -409,22 +369,20 @@ def calculate_hosts_range(ip, subnet_mask):
         return  start_ip, end_ip
 
 
-
 def copy_results():
 # Get the result text from the result_text variable
         if hasattr(app, 'result_text'):
                
                 
                 pyperclip.copy(app.result_text)
-                messagebox.showinfo("Success", "Results copied to clipboard")
+                messagebox.showinfo("Success", "Results copied!")
         else:
                
                 messagebox.showerror("Error", "No results to copy")
            
 
- 
-   
-
+  
+# App Configs
 app=customtkinter.CTk()
 app.title("Automatic IPv4 calculator")
 app.iconbitmap(resource_path("appicon.ico"))
@@ -435,28 +393,21 @@ app.resizable(False, False)
 # Set a working directory to the script's location
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-
-
-
-
-
 # Create the title label widget
 app.title_label = customtkinter.CTkLabel( master=app, text="AUTOMATIC IPv4 CALCULATOR", font=customtkinter.CTkFont(size=20, weight="bold"),)
 app.title_label.grid(row=0, column=0,padx=10, pady=10, sticky="w", columnspan=20)
        
-#Expand the first column to fill the window
+# Expand the first column to fill the window
 app.grid_columnconfigure(0, weight=1)
 
        
-#set the userappearance mode and scaling mode
-#label for appearance mode
+# set the userappearance mode and scaling mode
+# label for appearance mode
 appearance_label = customtkinter.CTkLabel(master=app, text="Mode:")
 appearance_label.grid(row=0, column=1, padx=10, pady=10, sticky="e")
 appearance_mode_optionmenu = customtkinter.CTkOptionMenu(app,values=["Light", "Dark", "System"], command= lambda v:change_appearance_mode_event(app,v))
 appearance_mode_optionmenu.grid(row=0,column=2, padx=10, pady=(10), sticky="e")
 appearance_mode_optionmenu.set("Dark")
-       
-
          
 # Label for UI scaling mode
 scaling_label = customtkinter.CTkLabel(master=app, text="UI Scaling:")
@@ -464,10 +415,7 @@ scaling_label.grid(row=0, column=3, padx=10, pady=10, sticky="e")
 scaling_optionmenu = customtkinter.CTkOptionMenu(app,values=["80%", "90%", "100%", "110%", "120%"], command=lambda v:change_scaling_event(app,v))
 scaling_optionmenu.grid(row=0, column=4, padx=10, pady=(10), sticky="e")
 scaling_optionmenu.set("100")
-       
-       
-       
-       
+                 
 #create a tabviewframe for the app that handles two tabs of SUBNET and VLSM input fields, labels and other widgets
 tabview_frame = customtkinter.CTkTabview(master=app, width=950, height=580, corner_radius=0)
 #tabview_frame.pack(fill="both", expand=True, padx=10, pady=10)
@@ -484,12 +432,9 @@ tabview_frame.tab("SUBNET CALCULATOR").grid_columnconfigure(0, weight=1,)
 tabview_frame.tab("VLSM CALCULATOR").grid_columnconfigure(0, weight=1,)
 tabview_frame.tab("VLSM CALCULATOR").grid_columnconfigure(1, weight=1,)
 tabview_frame.tab("VLSM CALCULATOR").grid_columnconfigure(2, weight=1,)
-       
-
-       
+         
 # Set the size of the tabview frames
 tabview_frame.configure(width=950, height=550)
-
 
 #create a scrollable frame with in the tabview frame
 vlsm_main_frame = customtkinter.CTkScrollableFrame(tabview_frame.tab("VLSM CALCULATOR"),width=950, height=580, corner_radius=0)
@@ -499,8 +444,7 @@ vlsm_main_frame.grid(row=0, column=0,)
 frame1 = customtkinter.CTkFrame(master=tabview_frame.tab("SUBNET CALCULATOR"), width=180, height=500, corner_radius=0)
 frame1.pack(fill="both",side="left", expand=True, padx=10, pady=10, )
 frame1.place(x=0, y=0)
-       
-       
+              
 #create frame2 for the SUBNET CALCULATOR tab for input fields of ip address throogh reverse dns lookup
 frame2 = customtkinter.CTkFrame(master=tabview_frame.tab("SUBNET CALCULATOR"), width=840, height=500, corner_radius=0)
 frame2.pack(fill="both",side="right", expand=True, padx=10, pady=10)
@@ -510,23 +454,19 @@ frame2.place(x=180, y=0)
 label_font = customtkinter.CTkFont(size=14, weight="bold")
 frame_width = frame1.winfo_width()
 
-
 #create frames for the SUBNET CALCULATOR tab for labels of ip address throogh reverse dns lookup
 frame1 = customtkinter.CTkFrame(master=tabview_frame.tab("SUBNET CALCULATOR"), width=180, height=500, corner_radius=0)
 frame1.pack(fill="both",side="left", expand=True, padx=10, pady=10, )
 frame1.place(x=0, y=0)
-       
-       
+             
 #create frame2 for the SUBNET CALCULATOR tab for input fields of ip address throogh reverse dns lookup
 frame2 = customtkinter.CTkFrame(master=tabview_frame.tab("SUBNET CALCULATOR"), width=840, height=500, corner_radius=0)
 frame2.pack(fill="both",side="right", expand=True, padx=10, pady=10)
 frame2.place(x=180, y=0)
-       
-       
+              
 label_font = customtkinter.CTkFont(size=14, weight="bold")
 frame_width =frame1.winfo_width()
-       
-       
+              
 #create labels for the SUBNET CALCULATOR tab for ip address throogh reverse dns lookup
 label1 = customtkinter.CTkLabel(master=frame1, text="  IP  ADDRESS", font=label_font)
 label1.pack(fill="both", expand=False, padx=150, pady=100,)
@@ -603,8 +543,7 @@ hosts_range_entry = customtkinter.CTkEntry(master=frame2, width=100, font=label_
 hosts_range_entry.grid(row=8, column=0, padx=10, pady=10, sticky="we", columnspan=6)
 total_hosts_entry = customtkinter.CTkEntry(master=frame2, width=100, font=label_font,justify="center")
 total_hosts_entry.grid(row=9, column=0, padx=10, pady=10, sticky="we", columnspan=6)
-       
-       
+             
 #create action buttons for the SUBNET calculator
 calculate_button = customtkinter.CTkButton(master=frame2, text="CALCULATE", font=label_font, corner_radius=0, command=calculate)
 calculate_button.grid(row=0, column=6, padx=(12), pady=(20,0), sticky="nswe", rowspan=2)
@@ -618,12 +557,7 @@ feedback_button = customtkinter.CTkButton(master=frame2, text="FEEDBACK", font=l
 feedback_button.grid(row=8, column=6, padx=12, pady=(20, 0), sticky="nswe", rowspan=2)
 
 
-
-
 #       """""""""""""""""""""""""""""""VLSM CALCTULATOR TAB METHODS START FROM THIS LINE"""""""""""""""""""""""""""""""""""""""""""
-
-
-
 # first list all the data
 subnetdata = []
 tree = None
@@ -673,11 +607,6 @@ def update_entry():
         vlsm_calculate_button = customtkinter.CTkButton(master=hosts_frame, text="CALCULATE", corner_radius=0, font=label_font, command=update_subnets)
         vlsm_calculate_button.grid(row=0+s, column=2)
        
-       
-       
-       
-
-
 
 def update_subnets():
         s = int(subnets.get())
@@ -696,14 +625,12 @@ def update_subnets():
         if xscrollbar is not None:
             xscrollbar.destroy()
 
-       
         # create a treeview widget
         tree = ttk.Treeview(results_frame, show="headings", height=300)
         tree["columns"] = entry_data.columns.tolist()
        
         tree.selection_set(tree.get_children())  # Select all items by default
 
-       
         # configure the column headings
         for i, column in enumerate(entry_data.columns):
            
@@ -735,18 +662,12 @@ def update_subnets():
         # Show message box with the results
         results_info = entry_data.to_string()
         messagebox.showinfo("Results", results_info)
-
-        
-       
-       
-       
-       
-       
-       
+    
+         
 #create a function to calculate the subnets and hosts
 
 def calculate_vlsm(s):
-        #s=int(subnets.get())
+
         #first validate the ip/cidr entry
         try:
                 network_address,prefixlen = validate_ipv4network()
@@ -798,21 +719,13 @@ def calculate_vlsm(s):
                 hostslist = list(subnet.hosts())
                 subnetsframe["Usable Range"][i] = f"{(hostslist[0])} - {hostslist[-1]}"
                 ipAddress += subnetsframe["Total IPs"][i]
-         
-        #print(subnetsframe.head())      
+               
         return subnetsframe
-
-
-
-
-
 
 
 def copy_results_to_clipboard():
         s = int(subnets.get())
         
-
-
         if not subnetdata:
 
                 messagebox.showinfo("No Results", "Please calculate the results first.")
@@ -826,13 +739,12 @@ def copy_results_to_clipboard():
 
                 # Copy the results to the clipboard
                 pyperclip.copy(results_info)
-                messagebox.showinfo("Success", "Results copied to clipboard!")
+                messagebox.showinfo("Success", "Results copied!")
         except:
 
-                messagebox.showerror("Failure", "Failed to copy results to clipboard.")
-       
+                messagebox.showerror("Failure", "Failed to copy results.")
 
-       
+
 def validate_ipv4network():
         network_str = ip_cidr_entry.get()
         network_split = network_str.split("/")
@@ -874,13 +786,9 @@ def validate_ipv4_address(ipvlsm):
         except:
                 return
        
-       
-                                            
-               
-
+              
 #         """"""""""""""WIDGETS FOR THE VLSM CALCULATOR"""""""""""""""""""          
-       
-           
+#                   
 # first create a frame for the vlsm
 vlsm_frame = customtkinter.CTkFrame(vlsm_main_frame, height = 100, width = 950) #width=950, height=500)
 vlsm_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nswe")
@@ -896,7 +804,6 @@ vlsm_frame.columnconfigure(2, weight=1)
 # add the ip/cidr label
 ip_cidr_label = customtkinter.CTkLabel(master=vlsm_frame, text="IP ADDRESS/CIDR", font=label_font, width=50)
 ip_cidr_label.grid(row=0, column=0, padx=10, pady=10, sticky="ew",)
-
 
 # add the ip/cidr entry
 ip_cidr_entry = customtkinter.CTkEntry(master=vlsm_frame, width=300, font=label_font, justify="center")
@@ -924,14 +831,10 @@ vlsm_help_button.grid(row=0, column=3, padx=12, pady=(20,0), sticky="ns")
 vlsm_feedback_button = customtkinter.CTkButton(master=vlsm_frame, text="FEEDBACK", corner_radius=0, font=label_font, command=provide_feedback)
 vlsm_feedback_button.grid(row=1, column=3, padx=12, pady=(20,0), sticky="ns")
 
-
-
 # Create a button to copy results to clipboard
 copy_button_vlsm = customtkinter.CTkButton(master=vlsm_frame, text="COPY", font=label_font,corner_radius=0, command=copy_results_to_clipboard)
 copy_button_vlsm.grid(row=1, column=2, padx=12, pady=(20,0), sticky="ns")
-       
-       
-       
+            
 # Entry for hosts in the subnet frame
 hosts_frame = customtkinter.CTkFrame(vlsm_main_frame, height = 100, width = 950)#width=950,height=100)
 hosts_frame.grid(row=2, column=0, padx=10, pady=10, sticky="nswe")
@@ -940,14 +843,10 @@ hosts_frame.grid(row=2, column=0, padx=10, pady=10, sticky="nswe")
 hosts_frame.columnconfigure(0, weight=1)
 hosts_frame.columnconfigure(1, weight=1)
 hosts_frame.columnconfigure(2, weight=1)
-
-
-       
+ 
 # Create the results_frame.
 results_frame = customtkinter.CTkFrame(vlsm_main_frame, height = 300, width = 950)
 results_frame.grid(row=3,column=0, pady=10, sticky="nswe")
-
-
 
 # configure the results frame coulmns
 results_frame.columnconfigure(0, weight=1)
@@ -960,10 +859,5 @@ results_frame.rowconfigure(1, weight=1)
 results_frame.rowconfigure(2, weight=1)
 
 
-       
-
-
-
- 
-   
+# run app (as admin 😁)
 app.mainloop()
