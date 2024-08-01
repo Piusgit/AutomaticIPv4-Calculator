@@ -1,13 +1,12 @@
 # AutomaticIPv4-Calculator
-Automatic IPv4 Calculator is powerful Python application that automates IPv4 subnetting for both Fixed Length Subnet Masking(FLSM) and Variable Length Subnet Masking(VLSM) scenarios.
-built on Customtkinter. Find the python file in the repo for edits
+Automatic IPv4 Calculator is a sophisticated WINDOWS Python program for IPv4 subnetting that supports both Fixed Length Subnet Masking (FLSM) and Variable Length Subnet Masking (VLSM) scenarios. It is created with Customtkinter.
 
 **Screenshots**
 
-Dark mode:
+> Dark mode:
 ![1](https://github.com/Piusgit/AutomaticIPv4-Calculator/assets/88792621/b326eaf5-4aa1-44a7-9fc9-7fd325e3739b)
 
-Light mode:
+> Light mode:
 ![2](https://github.com/Piusgit/AutomaticIPv4-Calculator/assets/88792621/d6ff5a85-7c40-48ff-9b50-266286a96f8e)
 
 ## **Features** 
@@ -16,18 +15,11 @@ Light mode:
 _The Automatic IPv4 Calculator takes care of the complex calculations for you and all is done without internet connection._
 _Need internet for reverse-dns-lookup & providing a feeedback._
 
--**FLSM and VLSM Support:** Well this cool, right?
+-**FLSM and VLSM Support:** 
 
--**Copy Functionality:** Easily copy to clipboard.
+-**Copy Functionality:**
 
--**Feedback and Support:** This is valuable for issues and suggestions
-
-
-
-
-
-
-
+-**Feedback and Support:**
 
 
 ## **Usage**
