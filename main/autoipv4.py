@@ -381,7 +381,7 @@ def copy_results():
 # App Configs
 app=customtkinter.CTk()
 app.title("Automatic IPv4 calculator")
-app.iconbitmap(resource_path("appicon.ico"))
+app.iconbitmap(resource_path("assets/appicon.ico"))
 app.geometry(f"{960}x{580}")
 app._windows_set_titlebar_color(color_mode="System")
 app.resizable(False, False)
