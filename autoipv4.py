@@ -15,15 +15,17 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import sys
 
+# this func might vary with different machines
 def resource_path(relative_path):
-        """ Get absolute path to resource, works for dev and for PyInstaller """
-        try:
-                # PyInstaller creates a temp folder and stores path in _MEIPASS
-                base_path = sys._MEIPASS
-        except Exception:
-                base_path = os.path.abspath(".")
-        
-        return os.path.join(base_path, relative_path)
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path)
+
 
 # appearance modes
 customtkinter.set_appearance_mode("System")  #Other Modes: "System" (standard), "Dark", "Light"
@@ -41,7 +43,7 @@ def change_appearance_mode_event(app, new_appearance_mode: str):
 def save_feedback_to_excel(feedback_data):
        
         # Load the existing workbook
-        wb = load_workbook(resource_path("feed_me.xlsx"))
+        wb = load_workbook(resource_path("data/feed_me.xlsx"))
        
         # Select the active sheet
         sheet = wb.active
@@ -56,7 +58,7 @@ def save_feedback_to_excel(feedback_data):
                 sheet[f"{col_letter}{next_row+row_num}"] = value
        
         # Save the workbook
-        wb.save(resource_path("feed_me.xlsx"))
+        wb.save(resource_path("data/feed_me.xlsx"))
 
 
 def send_feedback_email(feedback):
@@ -131,10 +133,7 @@ def show_help():
         - The input validation ensures that valid IP addresses and CIDR values are provided.
         - The 'Clear' button clears all input and output fields of the subnet calculator.
         - The select button also initiates another instance of calculations."""""))
-       
-       
-
-
+ 
 # calculate button methods
 def calculate():
         # Get the input values
@@ -209,8 +208,7 @@ def calculate():
                        
                 messagebox.showerror("Error", "Please enter all the required fields.")
                
-   
-    
+
 # The validate_input method is called by the calculate method to validate the input values entered by the user. 
 # It checks if the IP address and CIDR value are valid. 
 # If the input values are valid, it returns True. Otherwise, it returns False.
@@ -380,7 +378,6 @@ def copy_results():
                 messagebox.showerror("Error", "No results to copy")
            
 
-  
 # App Configs
 app=customtkinter.CTk()
 app.title("Automatic IPv4 calculator")
