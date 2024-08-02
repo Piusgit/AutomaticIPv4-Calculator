@@ -59,7 +59,7 @@ libcrypto-1_1.dll
 *.md
 *.pyd
 *.dll
-
+.env
 
 
 
