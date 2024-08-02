@@ -14,6 +14,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import sys
+from dotenv import load_dotenv
 
 # this func might vary with different machines
 def resource_path(relative_path):
@@ -60,15 +61,18 @@ def save_feedback_to_excel(feedback_data):
         # Save the workbook
         wb.save(resource_path("data/feed_me.xlsx"))
 
+# load environmental variables
+load_dotenv()
 
 def send_feedback_email(feedback):
 
         # Email configuration (update to your own)
-        sender_email = "cyberwhizy@gmail.com"
-        receiver_email = "cyberwhizy@gmail.com"
+        sender_email = os.getenv("SENDER_EMAIL")
+        receiver_email = os.getenv("RECEIVER_EMAIL")
         email_subject = "feedback from autoipv4"
-        smtp_server = "smtp.gmail.com"  
-        smtp_port = 587  # Update with your SMTP port
+        smtp_server = os.getenv("SMTP_SERVER")  
+        smtp_port = int(os.getenv("SMTP_PORT"))
+        email_password = os.getenv("EMAIL_PASSWORD")
 
         # Create a multipart message to include both plain text and HTML
         message = MIMEMultipart()
@@ -85,7 +89,7 @@ def send_feedback_email(feedback):
         try:
                 smtp_connection = smtplib.SMTP(smtp_server, smtp_port)
                 smtp_connection.starttls()
-                smtp_connection.login(sender_email, "smoy gmes seqt pfqv") 
+                smtp_connection.login(sender_email, email_password) 
                 smtp_connection.sendmail(sender_email, receiver_email, message.as_string())
                 smtp_connection.quit()
         except Exception as e:
