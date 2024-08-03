@@ -1,30 +1,51 @@
-# AutomaticIPv4-Calculator
-Automatic IPv4 Calculator is a sophisticated WINDOWS Python program for IPv4 subnetting that supports both Fixed Length Subnet Masking (FLSM) and Variable Length Subnet Masking (VLSM) scenarios. It is created with Customtkinter.
+# **AutomaticIPv4-Calculator**
 
-**Screenshots**
+![image]([hold on])
+> A sophisticated WINDOWS Python app for IPv4 subnetting that supports both Fixed Length Subnet Masking (FLSM) and Variable Length Subnet Masking (VLSM) scenarios. It is created with Customtkinter.
 
-> Dark mode:
-![1](https://github.com/Piusgit/AutomaticIPv4-Calculator/assets/88792621/b326eaf5-4aa1-44a7-9fc9-7fd325e3739b)
+## Features
+- [x] **_hold on a bit_**
 
-> Light mode:
-![2](https://github.com/Piusgit/AutomaticIPv4-Calculator/assets/88792621/d6ff5a85-7c40-48ff-9b50-266286a96f8e)
+## Prerequisites
+- [x] Python 3.x
+- [x] Tkinter/Customtkinter
 
-## **Features** 
+## Installation:
+1. Clone the repository:
+```
+git clone https://github.com/douglascybersec/AutomaticIPv4-Calculator.git
 
--**Automated subnetting:** 
--**FLSM and VLSM Support:** 
--**Copy Functionality:**
--**Feedback and Support:**
+```
+
+2. Navigate to project directory:
+```
+cd RAutomaticIPv4-Calculator
+
+```
+
+3. Install dependencies:
+```
+pip install -r requirements.txt
+
+```
+# _more to be added, hold on_
+
+## Usage
+- [x] Run the Application:
+```
+python randpasswd.py
+
+```
+
+## License
+The MIT License grants the use of this project. See the [LICENSE](https://github.com/douglascybersec/Random-Passwds/blob/master/LICENSE) file for additional details.
+
+## Feedback & Collabs
+Got a feedback or want to collaborate? I'm all circuits! Pull requests? Yes, I love them! _If not h4ck1n9 or c0d1ng, you might catch me creating cybersecurity content mostly on YouTube._ Checkout the [YouTube Channel](https://www.youtube.com/@douglascybersec) for more..
 
 
-## **Usage**
-1. **Download and Install**
-   
-# MORE UPDATES LATER...
 
-
-
-  
+# MORE UPDATES LATER
 
 
 
