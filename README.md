@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ## Usage
 - [x] Run the Application:
 ```
-python randpasswd.py
+python autoipv4.py
 
 ```
 
