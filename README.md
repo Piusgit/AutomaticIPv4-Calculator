@@ -3,39 +3,21 @@
 ![image]([hold on])
 > A sophisticated WINDOWS Python app for IPv4 subnetting that supports both Fixed Length Subnet Masking (FLSM) and Variable Length Subnet Masking (VLSM) scenarios. It is created with Customtkinter.
 
-## Features
-- [x] **_hold on a bit_**
+# **Installation & Usage Guide**
+## Overview
+This guide provides how to Install the full-featured app and reusing the code, all are explained below. The program is completely functional and ready for use in the ZIP file, and accessing and reusing the codebase—including the ZIP file—is made possible by cloning the repository.
 
 ## Prerequisites
+- [x] Windows 10/11
 - [x] Python 3.x
 - [x] Tkinter/Customtkinter
 
-## Installation:
-1. Clone the repository:
-```
-git clone https://github.com/douglascybersec/AutomaticIPv4-Calculator.git
+## Usage Methods
+### Method 1: Running (fully-fledged app) from ZIP File
 
-```
 
-2. Navigate to project directory:
-```
-cd AutomaticIPv4-Calculator
+### Method 2: Runnning the cloned repo
 
-```
-
-3. Install dependencies:
-```
-pip install -r requirements.txt
-
-```
-# _more to be added, hold on_
-
-## Usage
-- [x] Run the Application:
-```
-python autoipv4.py
-
-```
 
 ## License
 The MIT License grants the use of this project. See the [LICENSE](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/LICENSE) file for additional details.
