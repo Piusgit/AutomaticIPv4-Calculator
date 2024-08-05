@@ -19,7 +19,7 @@ git clone https://github.com/douglascybersec/AutomaticIPv4-Calculator.git
 
 2. Navigate to project directory:
 ```
-cd RAutomaticIPv4-Calculator
+cd AutomaticIPv4-Calculator
 
 ```
 
