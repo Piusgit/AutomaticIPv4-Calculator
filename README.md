@@ -55,7 +55,7 @@ SMTP_PORT = 587
 ```
 py -3 -m venv venv
 .\venv\Scripts\activate
-pip install -r requirements.txt
+py -3 -m pip install -r requirements.txt
 
 ```
 
