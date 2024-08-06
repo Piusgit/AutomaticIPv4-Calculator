@@ -37,6 +37,19 @@ cd AutomaticIPv4-Calculator
 
 
 ### Method II: Runnning/Reusing the cloned repository
+
+1. Make a fresh file named **.env** and copy-paste the following in:
+```
+SENDER_EMAIL= "your_email@gmail.com"
+RECEIVER_EMAIL = "your_email@gmail.com"
+EMAIL_PASSWORD = "your_app_password"
+SMTP_SERVER = "smtp.gmail.com"  
+SMTP_PORT = 587
+
+```
+2. enter the necessary data, including [your_app_password](https://support.google.com/accounts/answer/185833?hl=en)
+**_so, instead of hardcoding vital info in your code, this creates [environmental varibales](https://en.wikipedia.org/wiki/Environment_variable) for security purposes (make the cybersec team proud!)_**
+
 3. Install dependencies:
 ```
 py -3 -m venv venv
@@ -47,7 +60,7 @@ pip install -r requirements.txt
 
 4. Run the Script:
 ```
-python mytodos.py
+python autoipv4.py
 
 ```
 
