@@ -34,7 +34,7 @@ cd AutomaticIPv4-Calculator
 . finally, open the files to autoipv4 and run
 
 ```
-**_note:_** _to avoid dependency concerns, do not execute the application outside of its directory_ 
+**_note:_** **_to avoid dependency concerns, do not execute the application outside of its directory_**
 
 
 ### Method II: Runnning/Reusing the cloned repository
@@ -50,7 +50,7 @@ SMTP_PORT = 587
 ```
 2. enter the necessary data, including [your_app_password](https://support.google.com/accounts/answer/185833?hl=en)
 
-**_so, instead of hardcoding vital info in your code, this creates [environmental varibales](https://en.wikipedia.org/wiki/Environment_variable) for security purposes (make the cybersec team proud!)_**
+**_so, instead of hardcoding vital data in your code, this creates [environmental varibales](https://en.wikipedia.org/wiki/Environment_variable) for security purposes (make the cybersec team proud!)_**
 
 3. Install dependencies:
 ```
