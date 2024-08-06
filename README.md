@@ -11,6 +11,7 @@ This guide provides how to Install the full-featured WINDOWS-version pre-release
 - [x] Windows 10/11
 - [x] Python 3.x
 - [x] Tkinter/Customtkinter
+- [x] Or NONE of the above
 
 ## Usage Methods
 ### Method I: Running (pre-release) from ZIP File
