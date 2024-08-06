@@ -5,7 +5,7 @@
 
 # **Installation & Usage Guide**
 ## Overview
-This guide provides how to Install the full-featured app and reusing the code, all are explained below. The program is completely functional and ready for use in the ZIP file, and accessing and reusing the codebase—including the ZIP file—is made possible by cloning the repository.
+This guide provides how to Install the full-featured WINDOWS-version pre-release app and reusing the code, all are explained below. The program is completely functional and ready for use in the ZIP file, and accessing and reusing the codebase—including the ZIP file—is made possible by cloning the repository.
 
 ## Prerequisites
 - [x] Windows 10/11
@@ -13,10 +13,43 @@ This guide provides how to Install the full-featured app and reusing the code, a
 - [x] Tkinter/Customtkinter
 
 ## Usage Methods
-### Method 1: Running (fully-fledged app) from ZIP File
+### Method I: Running (pre-release) from ZIP File
+1. Clone the repository:
+```
+git clone https://github.com/douglascybersec/AutomaticIPv4-Calculator.git
+
+```
+
+2. Navigate to project directory:
+```
+cd AutomaticIPv4-Calculator
+
+```
+
+3. Unzip the pre-release file:
+```
+. locate the exe-file-output.zip
+. extract and unzip it
+. finally, open the files to autoipv4 and run
+
+```
+**_note:_** _to avoid dependency concerns, do not execute the application outside of its directory_ 
 
 
-### Method 2: Runnning the cloned repo
+### Method II: Runnning/Reusing the cloned repository
+3. Install dependencies:
+```
+py -3 -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+
+```
+
+4. Run the Script:
+```
+python mytodos.py
+
+```
 
 
 ## License
