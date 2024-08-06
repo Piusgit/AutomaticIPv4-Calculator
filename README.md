@@ -1,6 +1,6 @@
 # **AutomaticIPv4-Calculator**
 
-![image](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/static/repo.png)
+> ![image](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/static/repo.png)
 > A sophisticated WINDOWS Python app for IPv4 subnetting that supports both Fixed Length Subnet Masking (FLSM) and Variable Length Subnet Masking (VLSM) scenarios. It is created with Customtkinter.
 
 # **Installation & Usage Guide**
