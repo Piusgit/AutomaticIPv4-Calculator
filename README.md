@@ -13,7 +13,7 @@ This guide provides how to Install the full-featured WINDOWS-version pre-release
 - [x] Tkinter/Customtkinter
 
 ## Usage Methods
-### Method I: Running (pre-release) from ZIP File
+### Method I: Running (pre-release) from ZIP exe File
 1. Clone the repository:
 ```
 git clone https://github.com/douglascybersec/AutomaticIPv4-Calculator.git
@@ -38,7 +38,7 @@ cd AutomaticIPv4-Calculator
 
 ### Method II: Runnning/Reusing the cloned repository
 
-1. Make a fresh file named **.env** and copy-paste the following in:
+1. Make a fresh file named **.env** and copy-paste the following snippet in:
 ```
 SENDER_EMAIL= "your_email@gmail.com"
 RECEIVER_EMAIL = "your_email@gmail.com"
