@@ -5,7 +5,7 @@
 
 # **Installation & Usage Guide**
 ## Overview
-This guide provides how to Install the full-featured WINDOWS-version pre-release app and reusing the code, all are explained below. The program is completely functional and ready for use in the [ZIP file](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/exe-file-output.zip), and accessing and reusing the codebase—including the [ZIP file](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/exe-file-output.zip) —is made possible by cloning the repository.
+This guide provides how to Install the full-featured WINDOWS-version pre-release app and reusing the code, all are explained below. The program is completely functional and ready for use in the [exe-file-output.zip](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/exe-file-output.zip), and accessing and reusing the codebase—including the [exe-file-output.zip](https://github.com/douglascybersec/AutomaticIPv4-Calculator/blob/new-main/exe-file-output.zip) —is made possible by cloning the repository.
 
 ## Prerequisites
 - [x] Windows 10/11
@@ -13,7 +13,7 @@ This guide provides how to Install the full-featured WINDOWS-version pre-release
 - [x] Tkinter/Customtkinter
 
 ## Usage Methods
-### Method I: Running (pre-release) from ZIP exe File
+### Method I: Running (pre-release) from the exe-file-output.zip File
 1. Clone the repository:
 ```
 git clone https://github.com/douglascybersec/AutomaticIPv4-Calculator.git
