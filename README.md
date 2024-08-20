@@ -49,7 +49,7 @@ SMTP_PORT = 587
 ```
 2. enter the necessary data -your_email_address, including [your_app_password](https://support.google.com/accounts/answer/185833?hl=en)
 
-**_so, instead of hardcoding vital data in your code, this creates [environment variables](https://en.wikipedia.org/wiki/Environment_variable) for security purposes (make the cybersec team proud!)_**
+**_so, instead of hardcoding vital data in your code, this creates [environment variables](https://en.wikipedia.org/wiki/Environment_variable) for security purposes (make the cybersec team proud!) plus be sure to integrate other more secure email services_**
 
 3. Install dependencies:
 ```
